@@ -14,7 +14,7 @@ Commands                                                   *linkformat-commands*
 
 
                                                               *:LinkFormatPaste*
-:LinkFormatPaste
+:LinkFormatPaste [{link}]
 	Alias of |linkformat#paste()|.
 
 
@@ -23,9 +23,9 @@ Commands                                                   *linkformat-commands*
 Functions                                                 *linkformat-functions*
 
                                                             *linkformat#paste()*
-linkformat#paste()
-	Get the link from |v:register|, format it, and paste it.
-	See |g:linkformat_template| and |linkformat_register|.
+linkformat#paste([{link}])
+	If {link} is omitted, |v:register| is used.
+	Format {link} using |g:linkformat_template| and paste it.
 
 
                                                            *linkformat#format()*
@@ -61,12 +61,10 @@ Default: <>
 <
 
 
-                                                         *g:linkformat_register*
-g:linkformat_register ~
+                                                           *g:linkformat_result*
+g:linkformat_result ~
 string
-Default: l
-	The register used by |linkformat#paste()|. Choose an appropriate one
-	that you have not used.
+	The content pasted in the most recent |linkformat#paste()|.
 
 
 
