@@ -9,7 +9,7 @@ function! linkformat#format(link) abort
 endfunction
 
 function! linkformat#paste() abort
-  let cliptext = @*
+  let cliptext = getreg(v:register)
   let formatted = linkformat#format(cliptext)
   if formatted !=# ''
     let reg = get(g:, 'linkformat_register', 'l')
