@@ -1,1 +1,1 @@
-command! LinkFormatPaste call linkformat#paste()
+command! -nargs=? LinkFormatPaste call linkformat#paste(<q-args>)

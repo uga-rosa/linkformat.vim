@@ -10,8 +10,12 @@ function! linkformat#format(link) abort
   return substitute(template, '<>', owner_repo, '')
 endfunction
 
-function! linkformat#paste() abort
-  let cliptext = getreg(v:register)
+function! linkformat#paste(...) abort
+  if a:0 > 0
+    let cliptext = a:1
+  else
+    let cliptext = getreg(v:register)
+  endif
   let formatted = linkformat#format(cliptext)
   if formatted !=# ''
     let reg = get(g:, 'linkformat_register', 'l')
