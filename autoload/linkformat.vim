@@ -1,5 +1,7 @@
 function! linkformat#format(link) abort
-  let owner_repo = matchstr(a:link, '\v[^\/]+\/[^\/]+$')
+  let link = substitute(a:link, '\v^git\@github.com:', '', '')
+  let link = substitute(link, '\v\.git$', '', '')
+  let owner_repo = matchstr(link, '\v[^\/]+\/[^\/]+$')
   if owner_repo ==# ''
     echomsg 'Invalid link: ' a:link
     return ''

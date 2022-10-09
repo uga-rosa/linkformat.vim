@@ -24,13 +24,17 @@ Functions                                                 *linkformat-functions*
 
                                                             *linkformat#paste()*
 linkformat#paste()
-	Get the URL from * register, format it, and paste it.
+	Get the link from |v:register|, format it, and paste it.
 	See |g:linkformat_template| and |linkformat_register|.
 
 
                                                            *linkformat#format()*
 linkformat#format({link})
 	Returns formatted text from {link}.
+	Supported {link} formats are as following.
+		- https://github.com/uga-rosa/linkformat.vim (normal URL)
+		- https://github.com/uga-rosa/linkformat.vim.git (https clone)
+		- git@github.com:uga-rosa/linkformat.vim.git (ssh clone)
 	See |g:linkformat_template|.
 
 
