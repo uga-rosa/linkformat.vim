@@ -11,7 +11,7 @@ function! linkformat#format(link) abort
 endfunction
 
 function! linkformat#paste(...) abort
-  if a:0 > 0
+  if a:1
     let cliptext = a:1
   else
     let cliptext = getreg(v:register)
@@ -19,6 +19,6 @@ function! linkformat#paste(...) abort
   let formatted = linkformat#format(cliptext)
   if formatted !=# ''
     let g:linkformat_result = formatted
-    exe 'normal!' "\"=g:linkformat_result\<CR>p"
+    exe 'silent normal!' "\"=g:linkformat_result\<CR>p"
   endif
 endfunction
