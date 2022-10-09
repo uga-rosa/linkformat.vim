@@ -1,9 +1,11 @@
 function! linkformat#format(link) abort
   let owner_repo = matchstr(a:link, '\v[^\/]+\/[^\/]+$')
-  if owner_repo !=# ''
-    let template = get(g:, 'linkformat_template', '<>')
-    return substitute(template, '<>', owner_repo, '')
+  if owner_repo ==# ''
+    echomsg 'Invalid link: ' a:link
+    return ''
   endif
+  let template = get(g:, 'linkformat_template', '<>')
+  return substitute(template, '<>', owner_repo, '')
 endfunction
 
 function! linkformat#paste() abort
