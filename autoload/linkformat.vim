@@ -18,8 +18,7 @@ function! linkformat#paste(...) abort
   endif
   let formatted = linkformat#format(cliptext)
   if formatted !=# ''
-    let reg = get(g:, 'linkformat_register', 'l')
-    call setreg(reg, formatted)
-    exe 'normal! "' . reg . 'p'
+    let g:linkformat_result = formatted
+    exe 'normal!' "\"=g:linkformat_result\<CR>p"
   endif
 endfunction
